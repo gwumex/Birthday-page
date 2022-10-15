@@ -43,3 +43,19 @@ let aud;
     }
   })
 
+
+  fetch('http://localhost:8000/img')
+  .then(response => response.json())
+  .then(data => gallery(data))
+
+function gallery(img){
+  // console.log(img[1]);
+  img.map(e =>{
+  const{images, quote} = e;
+    `
+    
+    `
+  })
+} 
+
+gallery();
