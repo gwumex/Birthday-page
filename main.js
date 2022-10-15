@@ -8,8 +8,6 @@ let pseconds = document.querySelector('#secs');
 let play = document.getElementById('playbtn');
 let isplaying = 0;
 
-
-
 var x = setInterval(function() {
     let now = new Date().getTime();
     let distance = countDownDate - now;
@@ -44,13 +42,13 @@ let aud;
   })
 
 
-  fetch('http://localhost:8000/img')
+fetch('http://localhost:8000/img')
   .then(response => response.json())
   .then(data => gallery(data))
 
-function gallery(img){
+function gallery(x){
   // console.log(img[1]);
-  img.map(e =>{
+  x.map(e =>{
   const{images, quote} = e;
     `
     

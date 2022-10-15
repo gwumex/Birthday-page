@@ -13,6 +13,9 @@ h1{
 h2{
     font-size: 3rem;
 }
+h3{
+    font-size: 2rem;
+}
 a{
     text-decoration: none;
 }
@@ -107,4 +110,70 @@ body{
 }
 .footer > p{
     font-size: 2rem;
+}
+
+/* gallery */
+
+.home{
+    height: 100vh;
+    overflow: hidden;
+    background-color: blanchedalmond;
+    padding: 5rem 3rem;
+    display: flex;
+    flex-direction: column;
+}
+.btn-home{
+padding: 1rem 2rem;
+}
+
+.wishes{
+    margin: auto 0;
+    width: fit-content;
+}
+.message1{
+    font-size: 5rem;
+    background-image: linear-gradient(to top, blue, red);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.message2{
+    color: orangered;
+    font-size: 3rem;
+    margin-top: 2rem;
+    font-style: italic;
+}
+.images-container{
+    padding: 3rem 1.5rem;
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr 3fr;
+    column-width: auto;
+    column-count: 4;
+    gap: 1rem;
+    overflow: hidden;
+    background: linear-gradient(to top, rgba(255, 166, 0, 0.174), rgba(0, 128, 0, 0.137));
+}
+.image-box{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid white;
+    border-radius: 1rem;
+    transition: all 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
+    text-align: center;
+    background-color: black;
+}
+
+.img > img {
+    width: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.image-text{
+    color: orangered;
+    text-transform: capitalize;
+    padding: 1rem;
+    color: aliceblue;
 }
