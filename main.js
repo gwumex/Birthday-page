@@ -27,19 +27,28 @@ var x = setInterval(function() {
 
 
 let aud;
-  play.addEventListener('click', () => {
+let checkrandom = 0;
+function playmusic(){
+    let random;
      if(isplaying === 1){
         aud.pause();
         play.textContent = "Play Songs";
         isplaying = 0; 
     } else if( isplaying == 0){
-        isplaying = 1;
-        let random = Math.trunc(Math.random() * music.length);
-        aud = new Audio(music[random]);
-        aud.play();
-        play.textContent = "Playing";
+        random = Math.trunc(Math.random() * music.length);
+        if(random != checkrandom){
+          isplaying = 1;
+          checkrandom = random;
+          aud = new Audio(music[random]);
+          aud.play();
+          play.textContent = "Playing";
+        }else{
+          playmusic();
+        }
     }
-  })
+}
+
+play.addEventListener('click', playmusic);
 
 
 
