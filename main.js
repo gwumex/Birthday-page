@@ -42,18 +42,5 @@ let aud;
   })
 
 
-fetch('http://localhost:8000/img')
-  .then(response => response.json())
-  .then(data => gallery(data))
 
-function gallery(x){
-  // console.log(img[1]);
-  x.map(e =>{
-  const{images, quote} = e;
-    `
-    
-    `
-  })
-} 
-
-gallery();
+  

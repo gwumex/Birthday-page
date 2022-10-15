@@ -144,6 +144,7 @@ padding: 1rem 2rem;
     font-style: italic;
 }
 .images-container{
+    position: relative;
     padding: 3rem 1.5rem;
     display: grid;
     grid-template-columns: 3fr 3fr 3fr 3fr;
@@ -152,11 +153,11 @@ padding: 1rem 2rem;
     gap: 1rem;
     overflow: hidden;
     background: linear-gradient(to top, rgba(255, 166, 0, 0.174), rgba(0, 128, 0, 0.137));
+
 }
 .image-box{
-    position: relative;
-    height: 100%;
     width: 100%;
+    height: fit-content;
     cursor: pointer;
     overflow: hidden;
     border: 1px solid white;
@@ -166,14 +167,33 @@ padding: 1rem 2rem;
     background-color: black;
 }
 
+.img{
+    height: 500px;
+    overflow: hidden;
+}
+
 .img > img {
     width: 100%;
-    width: 100%;
-    object-fit: cover;
+    height: 100%;
 }
 .image-text{
     color: orangered;
     text-transform: capitalize;
-    padding: 1rem;
     color: aliceblue;
+    padding: 1rem;
+}
+
+.small{
+    height: 200px;
+}
+
+.large{
+    height: 300px;
+}
+.xlarge{
+    height: 400px;
+}
+
+.xxlarge{
+    height: 500px;
 }
