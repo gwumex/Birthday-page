@@ -240,6 +240,9 @@ body {
 .xxlarge {
     height: 500px;
 }
+.btnmusic{
+    background-color: blue;
+}
 
 @media only screen and (max-width: 900px) {
 

@@ -14,7 +14,92 @@ let imagess = [
           id: 3,
           images: "./images/3.jpg",
           quote: "lerom ipson hello"
-      }
+      },
+      {
+        id: 4,
+        images: "./images/4.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 5,
+        images: "./images/5.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 6,
+        images: "./images/6.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 7,
+        images: "./images/7.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 8,
+        images: "./images/8.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 9,
+        images: "./images/9.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 10,
+        images: "./images/10.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 11,
+        images: "./images/11.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 12,
+        images: "./images/12.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 13,
+        images: "./images/13.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 14,
+        images: "./images/14.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 15,
+        images: "./images/15.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 16,
+        images: "./images/16.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 17,
+        images: "./images/17.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 18,
+        images: "./images/18.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 19,
+        images: "./images/19.jpg",
+        quote: "lerom ipson hello"
+    },
+    {
+        id: 20,
+        images: "./images/20.jpg",
+        quote: "lerom ipson hello"
+    }
   ]
 
 let imagescontainer = document.querySelector('.images-container');
@@ -87,10 +172,11 @@ function dontrepeat(random){
     playmusic();
   }
 }
-let btns;
 imageBtn.forEach(btn => {
-
-  btn.addEventListener('click', playmusic);
+  
+  btn.addEventListener('click', () => {
+    playmusic()
+  });
   console.log(btn);
 })
 
