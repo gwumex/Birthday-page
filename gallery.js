@@ -145,6 +145,8 @@ function gallery() {
 gallery();
 
 imageBtn = document.querySelectorAll('#playbtn');
+let currentmusicbtn;
+
 
 let aud;
 let isplaying = 0;
@@ -153,7 +155,7 @@ function playmusic(){
     let random;
      if(isplaying === 1){
         aud.pause();
-  imageBtn.textContent = "Play Songs";
+  currentmusicbtn.textContent = "Play Songs";
         isplaying = 0; 
     } else if( isplaying == 0){
         random = Math.trunc(Math.random() * music.length);
@@ -161,28 +163,28 @@ function playmusic(){
     }
 }
 
+
+
 function dontrepeat(random){
   if(random != checkrandom){
     isplaying = 1;
     checkrandom = random;
     aud = new Audio(music[random]);
     aud.play();
-    imageBtn.textContent = "Playing";
+    currentmusicbtn.textContent = "Playing";
   } else{
     playmusic();
   }
 }
-imageBtn.forEach(btn => {
-  
-  btn.addEventListener('click', () => {
-    playmusic()
-  });
-  console.log(btn);
-})
 
-// for (let i = 0; i < imageBtn.length; i++) {
-//   addToCarts[i].addEventListener('click', () => {
-//       addCartNumber(products[i]);
-//       totalCost(products[i]);
-//   })
-// }
+
+imageBtn.forEach(btn => {  
+  console.log(btn.textContent);
+  btn.addEventListener('click', () => {
+    imageBtn.forEach(a => {
+      a.textContent = "Play Songs";
+    })
+    currentmusicbtn = btn;
+    playmusic();
+  });
+})

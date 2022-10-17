@@ -174,12 +174,11 @@ body {
     position: relative;
     width: 100%;
     padding: 3rem 1.5rem;
-    display: column;
+    display: block;
     column-count: 4;
     column-width: auto;
     overflow: hidden;
     background: linear-gradient(to top, rgba(255, 166, 0, 0.174), rgba(0, 128, 0, 0.137));
-    height: 500vh;
 }
 
 .image-box{
@@ -196,9 +195,6 @@ body {
     text-align: center;
     background-color: black;
     margin: 1rem;
-    break-after: avoid;
-    break-before: avoid;
-
 }
 
 .img {
@@ -219,10 +215,13 @@ body {
 }
 
 .image-btn {
+    display: none;
     z-index: 1;
     margin: auto;
     position: absolute;
     top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .small {
@@ -240,20 +239,20 @@ body {
 .xxlarge {
     height: 500px;
 }
-.btnmusic{
-    background-color: blue;
-}
-
 @media only screen and (max-width: 900px) {
-
+    html {
+        font-size: 8px;
+    }
     .images-container {
-        grid-template-columns: 1fr 1fr 1fr;
+        column-count: 3;
     }
 }
 
 @media only screen and (max-width: 600px) {
-
+    html {
+        font-size: p7x;
+    }
     .images-container {
-        grid-template-columns: 1fr 1fr;
+        column-count: 2;
     }
 }
