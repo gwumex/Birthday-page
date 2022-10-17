@@ -1,24 +1,95 @@
+let imagess = [
+      {
+          id: 1,
+          images: "./images/1.jpg",
+          quote: "lerom ipson hello"
+      },
+      {
+          id: 2,
+          images: "./images/2.jpg",
+          quote: "lerom ipson hello"
+      },
+      {
+          id: 3,
+          images: "./images/3.jpg",
+          quote: "lerom ipson hello"
+      }
+  ]
+
+
+
 let imagescontainer = document.querySelector('.images-container');
-let images = document.querySelector('.img');
+let homebtn = document.querySelector('.btn-home');
+let imageBtn;
 
-fetch('http://localhost:8000/img')
-  .then(response => response.json())
-  .then(data => gallery(data))
 
-function gallery(x){
-    let template = "";
-  x.map(e =>{
-    const {images, quote} = e;
-    let size = ["small", "large", "xlarge", "xxlarge" ];
+// fetch('http://localhost:3000/img')
+//   .then(response => response.json())
+//   .then(data => gallery(data))
+
+// function gallery(x) {
+//   x.map(e => {
+//     const { images, quote } = e;
+//     let size = ["small", "large", "xlarge", "xxlarge"];
+//     let random = Math.trunc(Math.random() * size.length);
+//     imagescontainer.innerHTML +=
+//       `<div class="image-box">
+//     <a class="btn play-music-btn image-btn" id="playbtn">Play Songs</a>
+//             <div class="img ${size[random]}">
+//                 <img src="${images}" alt="">
+//             </div>
+//             <h3 class= "image-text">${quote}</h3>
+//       </div>`
+//   })
+// }
+
+function gallery(x) {
+  imagess.map(e => {
+    const { images, quote } = e;
+    let size = ["small", "large", "xlarge", "xxlarge"];
     let random = Math.trunc(Math.random() * size.length);
-    console.log(size[random]);
-  template += 
-    `<div class="image-box">
+    imagescontainer.innerHTML +=
+      `<div class="image-box">
+    <a class="btn play-music-btn image-btn" id="playbtn">Play Songs</a>
             <div class="img ${size[random]}">
                 <img src="${images}" alt="">
             </div>
             <h3 class= "image-text">${quote}</h3>
       </div>`
   })
-  imagescontainer.innerHTML = template;
-} 
+}
+gallery();
+
+imageBtn = document.querySelectorAll('#playbtn');
+console.log(imageBtn);
+
+let aud;
+let isplaying = 0;
+let checkrandom = 0;
+function playmusic(){
+    let random;
+     if(isplaying === 1){
+        aud.pause();
+  imageBtn.textContent = "Play Songs";
+        isplaying = 0; 
+    } else if( isplaying == 0){
+        random = Math.trunc(Math.random() * music.length);
+        dontrepeat(random);
+    }
+}
+
+function dontrepeat(random){
+  if(random != checkrandom){
+    isplaying = 1;
+    checkrandom = random;
+    aud = new Audio(music[random]);
+    aud.play();
+    imageBtn.textContent = "Playing";
+  } else{
+    playmusic();
+  }
+}
+
+  btn.addEventListener('click', () => {
+    console.log('object');
+  });

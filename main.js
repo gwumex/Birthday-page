@@ -1,12 +1,11 @@
 'use strict'
 let music = ['./music/1.mp3', './music/2.mp3', './music/3.mp3', './music/4.mp3', './music/5.mp3','./music/6.mp3', './music/7.mp3', './music/8.mp3']
-let countDownDate = new Date("Oct 17, 2022 00:00:00").getTime();
+let countDownDate = new Date("Oct 18, 2022 00:00:00").getTime();
 let pdays = document.querySelector('#days');
 let phours = document.querySelector('#hours');
 let pmins = document.querySelector('#mins');
 let pseconds = document.querySelector('#secs');
 let play = document.getElementById('playbtn');
-let isplaying = 0;
 
 var x = setInterval(function() {
     let now = new Date().getTime();
@@ -27,6 +26,7 @@ var x = setInterval(function() {
 
 
 let aud;
+let isplaying = 0;
 let checkrandom = 0;
 function playmusic(){
     let random;
@@ -36,16 +36,20 @@ function playmusic(){
         isplaying = 0; 
     } else if( isplaying == 0){
         random = Math.trunc(Math.random() * music.length);
-        if(random != checkrandom){
-          isplaying = 1;
-          checkrandom = random;
-          aud = new Audio(music[random]);
-          aud.play();
-          play.textContent = "Playing";
-        }else{
-          playmusic();
-        }
+        dontrepeat(random);
     }
+}
+
+function dontrepeat(random){
+  if(random != checkrandom){
+    isplaying = 1;
+    checkrandom = random;
+    aud = new Audio(music[random]);
+    aud.play();
+    play.textContent = "Playing";
+  } else{
+    playmusic();
+  }
 }
 
 play.addEventListener('click', playmusic);
