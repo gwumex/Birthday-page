@@ -1,3 +1,4 @@
+let music = ['./music/1.mp3', './music/2.mp3', './music/3.mp3', './music/4.mp3', './music/5.mp3','./music/6.mp3', './music/7.mp3', './music/8.mp3']
 let imagess = [
       {
           id: 1,
@@ -15,8 +16,6 @@ let imagess = [
           quote: "lerom ipson hello"
       }
   ]
-
-
 
 let imagescontainer = document.querySelector('.images-container');
 let homebtn = document.querySelector('.btn-home');
@@ -43,7 +42,7 @@ let imageBtn;
 //   })
 // }
 
-function gallery(x) {
+function gallery() {
   imagess.map(e => {
     const { images, quote } = e;
     let size = ["small", "large", "xlarge", "xxlarge"];
@@ -61,7 +60,6 @@ function gallery(x) {
 gallery();
 
 imageBtn = document.querySelectorAll('#playbtn');
-console.log(imageBtn);
 
 let aud;
 let isplaying = 0;
@@ -89,7 +87,16 @@ function dontrepeat(random){
     playmusic();
   }
 }
+let btns;
+imageBtn.forEach(btn => {
 
-  btn.addEventListener('click', () => {
-    console.log('object');
-  });
+  btn.addEventListener('click', playmusic);
+  console.log(btn);
+})
+
+// for (let i = 0; i < imageBtn.length; i++) {
+//   addToCarts[i].addEventListener('click', () => {
+//       addCartNumber(products[i]);
+//       totalCost(products[i]);
+//   })
+// }
