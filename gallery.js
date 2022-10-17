@@ -104,7 +104,10 @@ let imagess = [
 
 let imagescontainer = document.querySelector('.images-container');
 let homebtn = document.querySelector('.btn-home');
+let isplaying = 0;
 let imageBtn;
+let currentmusicbtn;
+let aud;
 
 
 // fetch('http://localhost:3000/img')
@@ -132,6 +135,7 @@ function gallery() {
     const { images, quote } = e;
     let size = ["small", "large", "xlarge", "xxlarge"];
     let random = Math.trunc(Math.random() * size.length);
+    console.log(random);
     imagescontainer.innerHTML +=
       `<div class="image-box">
     <a class="btn play-music-btn image-btn" id="playbtn">Play Songs</a>
@@ -144,13 +148,9 @@ function gallery() {
 }
 gallery();
 
-imageBtn = document.querySelectorAll('#playbtn');
-let currentmusicbtn;
-
-
-let aud;
-let isplaying = 0;
+imageBtn = document.querySelectorAll('.image-btn');
 let checkrandom = 0;
+
 function playmusic(){
     let random;
      if(isplaying === 1){
@@ -159,19 +159,18 @@ function playmusic(){
         isplaying = 0; 
     } else if( isplaying == 0){
         random = Math.trunc(Math.random() * music.length);
-        dontrepeat(random);
+        dontRepeatPrevMusic(random);
     }
 }
 
-
-
-function dontrepeat(random){
+function dontRepeatPrevMusic(random){
   if(random != checkrandom){
     isplaying = 1;
     checkrandom = random;
     aud = new Audio(music[random]);
     aud.play();
-    currentmusicbtn.textContent = "Playing";
+    checkMusicStop();
+    currentmusicbtn.textContent = "Stop Music";
   } else{
     playmusic();
   }
@@ -179,12 +178,45 @@ function dontrepeat(random){
 
 
 imageBtn.forEach(btn => {  
-  console.log(btn.textContent);
   btn.addEventListener('click', () => {
-    imageBtn.forEach(a => {
-      a.textContent = "Play Songs";
-    })
+    editBtnContent();
     currentmusicbtn = btn;
     playmusic();
   });
 })
+
+let imagebox = document.querySelectorAll('.image-box');
+let img = document.querySelectorAll('.img');
+// imagebox.forEach((box) => {
+//   box.addEventListener('mouseover', () => {
+//     console.log("object");
+//     currentmusicbtn.style.display = "block";
+//   })
+// })
+function mouseOver(){
+  for(let i = 0; i < imagebox.length; i++){
+    imagebox[i].addEventListener('mouseover', () => {
+        imageBtn[i].style.display = "block";
+        if(isplaying === 1){
+          imageBtn[i].textContent = "Stop Music";
+        }
+    });
+    imagebox[i].addEventListener('mouseout', () => {
+        imageBtn[i].style.display = "none";
+    });
+  }
+}
+mouseOver();
+
+function checkMusicStop(){
+  aud.addEventListener('ended', function(){
+    editBtnContent();
+    isplaying = 0;
+  });
+}
+
+function editBtnContent(){
+  imageBtn.forEach(a => {
+    a.textContent = "Play Songs";
+  })
+}
